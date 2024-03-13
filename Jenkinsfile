@@ -10,7 +10,7 @@ httpPort="8081"
 stages {
 stage("code clone"){
 steps {
-checkout scmGit(branches: [[name: '*/master']], extensions: [], 
+checkout scmGit(branches: [[name: '*/main']], extensions: [], 
 userRemoteConfigs: [[url: 'https://github.com/Aman9696n/asi-insurance.git']])
 }
 }
