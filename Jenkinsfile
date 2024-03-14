@@ -16,7 +16,7 @@ userRemoteConfigs: [[url: 'https://github.com/Aman9696n/asi-insurance.git']])
 }
 stage("Maven build"){
 steps {
-sh "mvn clean package -DskipTests"
+sh "mvn clean install -DskipTests"
 }
 }
 stage("Build Docker Image"){
