@@ -1,9 +1,5 @@
 pipeline {
 agent any
-tools {
-        // Define Maven tool with version 3
-        maven 'maven3'
-      }
 tag = "1.0"
 dockerHubUser="amanmishra9696@gmail.com"
 containerName="insure-me"
@@ -16,11 +12,15 @@ checkout scmGit(branches: [[name: '*/main']], extensions: [],
 userRemoteConfigs: [[url: 'https://github.com/Aman9696n/asi-insurance.git']])
 }
 }
-stage("Maven build"){
-steps {
-sh "mvn clean install -DskipTests"
-}
-}
+stage('Build') {
+            steps {
+                script {
+                    def mavenHome = tool 'Maven3'
+                    env.PATH = "${mavenHome}/bin:${env.PATH}"
+                    sh 'mvn clean package'
+                }
+            }
+        }
 stage("Build Docker Image"){
 steps{
 sh "docker build -t ${dockerHubUser}/insure-me:${tag} ."
