@@ -14,15 +14,11 @@ checkout scmGit(branches: [[name: '*/main']], extensions: [],
 userRemoteConfigs: [[url: 'https://github.com/Aman9696n/asi-insurance.git']])
 }
 }
-stage('Build') {
-            steps {
-                script {
-                    def mavenHome = tool 'Maven3'
-                    env.PATH = "${mavenHome}/bin:${env.PATH}"
-                    sh 'mvn clean package'
-                }
-            }
-        }
+stage("Maven build"){
+steps {
+sh "mvn clean install -DskipTests"
+}
+}
 stage("Build Docker Image"){
 steps{
 sh "docker build -t ${dockerHubUser}/insure-me:${tag} ."
