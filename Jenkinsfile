@@ -2,6 +2,8 @@ pipeline {
 agent any
 environment {
 PATH = "/usr/share/maven:$PATH"
+mavenHome = tool name: 'maven', type: 'maven'
+mavenCMD = "${mavenHome}/bin/mvn"
 tag = "1.0"
 dockerHubUser="amanmishra9696@gmail.com"
 containerName="insure-me"
@@ -16,7 +18,7 @@ userRemoteConfigs: [[url: 'https://github.com/Aman9696n/asi-insurance.git']])
 }
 stage("Maven build"){
 steps {
-sh "mvn clean install -DskipTests"
+sh "${mavenCMD} clean package -DskipTests"
 }
 }
 stage("Build Docker Image"){
