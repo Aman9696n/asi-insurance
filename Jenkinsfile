@@ -1,6 +1,10 @@
 pipeline {
 agent any
 environment {
+        // Define Maven tool with version 3
+        def mvnHome = tool name: 'maven3', type: 'maven'
+        PATH = "${mvnHome}/bin:${env.PATH}"
+
 PATH = "/usr/bin:$PATH"
 tools {
         // Define Maven tool with version 3
