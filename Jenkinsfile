@@ -1,5 +1,7 @@
 pipeline {
 agent any
+environment {
+PATH = "/usr/bin:$PATH"
 tag = "1.0"
 dockerHubUser="amanmishra9696@gmail.com"
 containerName="insure-me"
