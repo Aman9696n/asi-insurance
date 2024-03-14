@@ -2,7 +2,10 @@ pipeline {
 agent any
 environment {
 PATH = "/usr/bin:$PATH"
-tool = { name: 'maven3', type: 'maven'}
+tools {
+        // Define Maven tool with version 3
+        maven 'maven3'
+      }
 tag = "1.0"
 dockerHubUser="amanmishra9696@gmail.com"
 containerName="insure-me"
