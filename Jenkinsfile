@@ -3,7 +3,7 @@ agent any
 environment {
 PATH = "/usr/bin:$PATH"
 tag = "1.0"
-dockerHubUser="amanmishra9696@gmail.com"
+dockerHubUser="aman9696"
 containerName="insure-me"
 httpPort="8081"
 }
