@@ -10,7 +10,11 @@ httpPort="8081"
 stages {
 stage("code clone"){
 steps {
+<<<<<<< HEAD
 checkout scmGit(branches: [[name: '*/master']], extensions: [], 
+=======
+checkout scmGit(branches: [[name: '*/main']], extensions: [], 
+>>>>>>> 0bbf9441bf06f35fe31709a485ea0d08afb98aab
 userRemoteConfigs: [[url: 'https://github.com/Aman9696n/asi-insurance.git']])
 }
 }
@@ -44,4 +48,7 @@ echo "Application started on port: ${httpPort} (http)"
 }
 }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0bbf9441bf06f35fe31709a485ea0d08afb98aab
